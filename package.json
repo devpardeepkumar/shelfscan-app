@@ -11,7 +11,7 @@
     "typecheck:functions": "tsc --noEmit -p supabase/functions/tsconfig.json"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.57.4",
+    "@supabase/supabase-js": "^2.111.0",
     "fast-json-stable-stringify": "^2.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
