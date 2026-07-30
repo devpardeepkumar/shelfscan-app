@@ -14,7 +14,74 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      scrape_results: {
+        Row: {
+          created_at: string
+          id: string
+          link: string
+          price: string
+          run_id: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          link: string
+          price: string
+          run_id: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          link?: string
+          price?: string
+          run_id?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "scrape_results_run_id_fkey"
+            columns: ["run_id"]
+            isOneToOne: false
+            referencedRelation: "scrape_runs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      scrape_runs: {
+        Row: {
+          books_count: number
+          browser_use_session_id: string | null
+          browser_use_task_id: string | null
+          created_at: string
+          error: string | null
+          id: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          books_count?: number
+          browser_use_session_id?: string | null
+          browser_use_task_id?: string | null
+          created_at?: string
+          error?: string | null
+          id?: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          books_count?: number
+          browser_use_session_id?: string | null
+          browser_use_task_id?: string | null
+          created_at?: string
+          error?: string | null
+          id?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
