@@ -124,7 +124,7 @@ export function useLiveScrape() {
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "scrape_runs" },
-        (payload) => {
+        (payload: { new: unknown }) => {
           const row = payload.new as ScrapeRun | undefined;
           if (!row?.id) return;
 
@@ -146,7 +146,7 @@ export function useLiveScrape() {
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "scrape_results" },
-        (payload) => {
+        (payload: { new: unknown }) => {
           const row = payload.new as ScrapeResult | undefined;
           if (!row?.run_id || row.run_id !== activeRunIdRef.current) return;
           void loadResults(row.run_id);
