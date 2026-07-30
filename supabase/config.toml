@@ -1,0 +1,20 @@
+# ShelfScan Supabase config (Lovable-compatible)
+
+[project]
+id = "books-scraper"
+
+[api]
+enabled = true
+
+[db]
+major_version = 15
+
+[functions.start-scrape]
+verify_jwt = true
+
+[functions.sync-scrape]
+verify_jwt = true
+
+[functions.browser-use-webhook]
+# Browser Use cannot send Supabase JWT
+verify_jwt = false
